@@ -16,9 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.hzy.zxing.ui.CaptureActivity"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

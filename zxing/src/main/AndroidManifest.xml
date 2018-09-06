@@ -11,9 +11,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus"/>
     <uses-feature android:name="android.hardware.touchscreen"/>
 
-    <application
-        android:allowBackup="false"
-        android:supportsRtl="true">
+    <application>
         <activity
             android:name="com.hzy.zxing.ui.CaptureActivity"
             android:screenOrientation="portrait"/>

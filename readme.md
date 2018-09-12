@@ -25,6 +25,43 @@ dependencies {
 }
 ```
 
+usage:
+
+```java
+ private final String[] perms = {Manifest.permission.CAMERA};
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    findViewById(R.id.btn_open_camera).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), 100);
+            } else {
+                ActivityCompat.requestPermissions(MainActivity.this, perms, 100);
+            }
+        }
+    });
+}
+
+@Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    if (requestCode == 100 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), 100);
+    }
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (100 == requestCode && resultCode == Activity.RESULT_OK) {
+        Toast.makeText(MainActivity.this, data.getStringExtra(CaptureActivity.RESULT_DATA_KEY), Toast.LENGTH_SHORT).show();
+    }
+}
+```
 
 
 

@@ -25,10 +25,10 @@ dependencies {
 }
 ```
 
-usage:
+# usage:
 
 ```java
- private final String[] perms = {Manifest.permission.CAMERA};
+private final String[] perms = {Manifest.permission.CAMERA};
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {

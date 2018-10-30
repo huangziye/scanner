@@ -15,6 +15,4 @@
     <item name="search_book_contents_succeeded" type="id"/>
     <item name="gridview" type="id"/>
     <item name="webview" type="id"/>
-    <item name="about_version_code" type="id">false</item>
-    <item name="split" type="id">false</item>
 </resources>
